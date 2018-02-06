@@ -6,4 +6,10 @@ cache:
   - node_modules
 script:
   - npm test
-  - npm run build
+deploy:
+  provider: heroku
+  api_key:
+    secure: b2fc80b5-3769-43f9-ac8f-4d1e783a8c59
+  app: muscat-service
+  on:
+    repo: sarah-yu/muscat-service
