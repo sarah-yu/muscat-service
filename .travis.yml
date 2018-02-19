@@ -1,15 +1,15 @@
 language: node_js
 node_js:
-  - "stable"
+- stable
 cache:
   directories:
   - node_modules
 script:
-  - npm test
+- npm test
 deploy:
   provider: heroku
   api_key:
-    secure: b2fc80b5-3769-43f9-ac8f-4d1e783a8c59
+    secure: iZuGbtjvFjjTVivsd/OuGfsFEkPJ7MNhZfD+/D4GrASY5EQt/b+HaAnthk2yLcxfiwmMEyX7IJM6HMvUy9EFf9SbjDjQtvt+rLE877x+XD2hnWpwoBwMSnevqTd8L4A1VjikvXri8RbQQvxx8ZqLWY6/zfKYA+HsEAF5Mx1FYBuwmxNsJIdQnHPvGHY4wvI/5WbEd4MS1M4xM3gXKJGcDSugcJJc1caNPBw3qVZc+qbPBBuDwIL+y8XzmAn2FncSr3EqK5BmkLfSMbb0RdeDDHnjOLf8IpZ1ch6YV0J9fliu+tcCztIObaaqs8ypwXJPYazuySQJyq2ZEhcCw+5AO4PZ8Y6yVcldUJZLKCn9UUHPkD9TK/I3+e2HR93edNeattYYOXvOgWAlyf1nQonsNR4YR9bYR5LsKJXtd4Bq7sebDQnLDs4l5sa9QVOCxS5mUj1rmo+eXnA+v3cKRD7Wv6PoJ5FT4L42KC0Ssit5ZiUwrZdhrchx1gMAtEKx87t9WJwztPpw4vf5aAndPKlx8WLwWYTQtFCE530BAZcWacReX//wBnliR6b5Vq6Xk5hUqbNBU4JzbFwjAJQBqfd9UPKr+4EAHmzOfRmoPNnSmpaBAzW4z2ZfpTx+hgNGndMSHRKtfXdlKHzlKhFBaLEYIMgSTrs9ZGx6IvI5dbmdTV8=
   app: muscat-service
   on:
     repo: sarah-yu/muscat-service
