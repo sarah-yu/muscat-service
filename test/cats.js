@@ -2,8 +2,8 @@ const should = require('chai').should()
 const expect = require('chai').expect
 const supertest = require('supertest')
 
-// const service = supertest('http://muscat-service.herokuapp.com')
-const service = supertest('http://localhost:3001')
+const service = supertest('http://muscat-service.herokuapp.com')
+// const service = supertest('http://localhost:3001')
 
 describe('GET /api/cats', () => {
 	it('should return a 200 response', done => {
