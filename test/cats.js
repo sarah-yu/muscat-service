@@ -1,9 +1,15 @@
 const should = require('chai').should()
 const expect = require('chai').expect
 const supertest = require('supertest')
+const os = require('os')
 
-const service = supertest('http://muscat-service.herokuapp.com')
-// const service = supertest('http://localhost:3001')
+const hostname = os.hostname()
+
+if (hostname.includes('Sarah')) {
+	const service = supertest('http://localhost:3001')
+} else {
+	const service = supertest('http://muscat-service.herokuapp.com')
+}
 
 describe('GET /api/cats', () => {
 	it('should return a 200 response', done => {
@@ -12,7 +18,7 @@ describe('GET /api/cats', () => {
 			.set('Accept', 'application/json')
 			.expect(200, done)
 	})
-	it('should return an array', function(done) {
+	it('should return an array', done => {
 		service
 			.get('/api/cats')
 			.set('Accept', 'application/json')
@@ -21,7 +27,7 @@ describe('GET /api/cats', () => {
 				done()
 			})
 	})
-	it('should return an array of objects with the field "name"', function(done) {
+	it('should return an array of objects with the field "name"', done => {
 		service
 			.get('/api/cats')
 			.set('Accept', 'application/json')
@@ -30,9 +36,7 @@ describe('GET /api/cats', () => {
 				done()
 			})
 	})
-	it('should return an array of objects with the field "breeds"', function(
-		done
-	) {
+	it('should return an array of objects with the field "breeds"', done => {
 		service
 			.get('/api/cats')
 			.set('Accept', 'application/json')
@@ -41,7 +45,7 @@ describe('GET /api/cats', () => {
 				done()
 			})
 	})
-	it('should return an array of objects with the field "mix"', function(done) {
+	it('should return an array of objects with the field "mix"', done => {
 		service
 			.get('/api/cats')
 			.set('Accept', 'application/json')
@@ -50,7 +54,7 @@ describe('GET /api/cats', () => {
 				done()
 			})
 	})
-	it('should return an array of objects with the field "sex"', function(done) {
+	it('should return an array of objects with the field "sex"', done => {
 		service
 			.get('/api/cats')
 			.set('Accept', 'application/json')
@@ -59,7 +63,7 @@ describe('GET /api/cats', () => {
 				done()
 			})
 	})
-	it('should return an array of objects with the field "size"', function(done) {
+	it('should return an array of objects with the field "size"', done => {
 		service
 			.get('/api/cats')
 			.set('Accept', 'application/json')
@@ -68,9 +72,7 @@ describe('GET /api/cats', () => {
 				done()
 			})
 	})
-	it('should return an array of objects with the field "description"', function(
-		done
-	) {
+	it('should return an array of objects with the field "description"', done => {
 		service
 			.get('/api/cats')
 			.set('Accept', 'application/json')
@@ -79,9 +81,7 @@ describe('GET /api/cats', () => {
 				done()
 			})
 	})
-	it('should return an array of objects with the field "options" containing the array "option"', function(
-		done
-	) {
+	it('should return an array of objects with the field "options" containing the array "option"', done => {
 		service
 			.get('/api/cats')
 			.set('Accept', 'application/json')
@@ -93,9 +93,7 @@ describe('GET /api/cats', () => {
 				done()
 			})
 	})
-	it('should return an array of objects with the field "contact"', function(
-		done
-	) {
+	it('should return an array of objects with the field "contact"', done => {
 		service
 			.get('/api/cats')
 			.set('Accept', 'application/json')
@@ -104,9 +102,7 @@ describe('GET /api/cats', () => {
 				done()
 			})
 	})
-	it('should include "city" field as part of the contact array', function(
-		done
-	) {
+	it('should include "city" field as part of the contact array', done => {
 		service
 			.get('/api/cats')
 			.set('Accept', 'application/json')
@@ -115,9 +111,7 @@ describe('GET /api/cats', () => {
 				done()
 			})
 	})
-	it('should include "state" field as part of the contact array', function(
-		done
-	) {
+	it('should include "state" field as part of the contact array', done => {
 		service
 			.get('/api/cats')
 			.set('Accept', 'application/json')
@@ -126,7 +120,7 @@ describe('GET /api/cats', () => {
 				done()
 			})
 	})
-	it('should include "email" as part of the contact array', function(done) {
+	it('should include "email" as part of the contact array', done => {
 		service
 			.get('/api/cats')
 			.set('Accept', 'application/json')
@@ -135,7 +129,7 @@ describe('GET /api/cats', () => {
 				done()
 			})
 	})
-	it('should include "phone" as part of the contact array', function(done) {
+	it('should include "phone" as part of the contact array', done => {
 		service
 			.get('/api/cats')
 			.set('Accept', 'application/json')
