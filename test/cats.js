@@ -5,10 +5,11 @@ const os = require('os')
 
 const hostname = os.hostname()
 
+let service
 if (hostname.includes('Sarah')) {
-	const service = supertest('http://localhost:3001')
+	service = supertest('http://localhost:3001')
 } else {
-	const service = supertest('http://muscat-service.herokuapp.com')
+	service = supertest('http://muscat-service.herokuapp.com')
 }
 
 describe('GET /api/cats', () => {
