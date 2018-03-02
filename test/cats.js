@@ -7,21 +7,23 @@ const hostname = os.hostname()
 
 let service
 if (hostname.includes('Sarah')) {
-	service = supertest('http://muscat-service.herokuapp.com')
-} else {
 	service = supertest('http://localhost:3001')
+} else {
+	service = supertest('http://muscat-service.herokuapp.com')
 }
 
-describe('GET /api/cats', () => {
+describe('GET /api/cats/:location', () => {
+	const location = '20878'
+
 	it('should return a 200 response', done => {
 		service
-			.get('/api/cats')
+			.post(`/api/cats/${location}`)
 			.set('Accept', 'application/json')
 			.expect(200, done)
 	})
 	it('should return an array', done => {
 		service
-			.get('/api/cats')
+			.post(`/api/cats/${location}`)
 			.set('Accept', 'application/json')
 			.end((err, res) => {
 				expect(res.body).to.be.an('array')
@@ -30,7 +32,7 @@ describe('GET /api/cats', () => {
 	})
 	it('should return an array of objects with the field "name"', done => {
 		service
-			.get('/api/cats')
+			.post(`/api/cats/${location}`)
 			.set('Accept', 'application/json')
 			.end(function(err, res) {
 				expect(res.body[0]).to.have.property('name')
@@ -39,7 +41,7 @@ describe('GET /api/cats', () => {
 	})
 	it('should return an array of objects with the field "breeds"', done => {
 		service
-			.get('/api/cats')
+			.post(`/api/cats/${location}`)
 			.set('Accept', 'application/json')
 			.end(function(err, res) {
 				expect(res.body[0]).to.have.property('breeds')
@@ -48,7 +50,7 @@ describe('GET /api/cats', () => {
 	})
 	it('should return an array of objects with the field "mix"', done => {
 		service
-			.get('/api/cats')
+			.post(`/api/cats/${location}`)
 			.set('Accept', 'application/json')
 			.end(function(err, res) {
 				expect(res.body[0]).to.have.property('mix')
@@ -57,7 +59,7 @@ describe('GET /api/cats', () => {
 	})
 	it('should return an array of objects with the field "sex"', done => {
 		service
-			.get('/api/cats')
+			.post(`/api/cats/${location}`)
 			.set('Accept', 'application/json')
 			.end(function(err, res) {
 				expect(res.body[0]).to.have.property('sex')
@@ -66,7 +68,7 @@ describe('GET /api/cats', () => {
 	})
 	it('should return an array of objects with the field "size"', done => {
 		service
-			.get('/api/cats')
+			.post(`/api/cats/${location}`)
 			.set('Accept', 'application/json')
 			.end(function(err, res) {
 				expect(res.body[0]).to.have.property('size')
@@ -75,7 +77,7 @@ describe('GET /api/cats', () => {
 	})
 	it('should return an array of objects with the field "description"', done => {
 		service
-			.get('/api/cats')
+			.post(`/api/cats/${location}`)
 			.set('Accept', 'application/json')
 			.end(function(err, res) {
 				expect(res.body[0]).to.have.property('description')
@@ -84,7 +86,7 @@ describe('GET /api/cats', () => {
 	})
 	it('should return an array of objects with the field "options" containing the array "option"', done => {
 		service
-			.get('/api/cats')
+			.post(`/api/cats/${location}`)
 			.set('Accept', 'application/json')
 			.end(function(err, res) {
 				expect(res.body[0])
@@ -96,7 +98,7 @@ describe('GET /api/cats', () => {
 	})
 	it('should return an array of objects with the field "contact"', done => {
 		service
-			.get('/api/cats')
+			.post(`/api/cats/${location}`)
 			.set('Accept', 'application/json')
 			.end(function(err, res) {
 				expect(res.body[0]).to.have.property('contact')
@@ -105,7 +107,7 @@ describe('GET /api/cats', () => {
 	})
 	it('should include "city" field as part of the contact array', done => {
 		service
-			.get('/api/cats')
+			.post(`/api/cats/${location}`)
 			.set('Accept', 'application/json')
 			.end(function(err, res) {
 				expect(res.body[0].contact).to.have.property('city')
@@ -114,7 +116,7 @@ describe('GET /api/cats', () => {
 	})
 	it('should include "state" field as part of the contact array', done => {
 		service
-			.get('/api/cats')
+			.post(`/api/cats/${location}`)
 			.set('Accept', 'application/json')
 			.end(function(err, res) {
 				expect(res.body[0].contact).to.have.property('state')
@@ -123,7 +125,7 @@ describe('GET /api/cats', () => {
 	})
 	it('should include "email" as part of the contact array', done => {
 		service
-			.get('/api/cats')
+			.post(`/api/cats/${location}`)
 			.set('Accept', 'application/json')
 			.end(function(err, res) {
 				expect(res.body[0].contact).to.have.property('email')
@@ -132,7 +134,7 @@ describe('GET /api/cats', () => {
 	})
 	it('should include "phone" as part of the contact array', done => {
 		service
-			.get('/api/cats')
+			.post(`/api/cats/${location}`)
 			.set('Accept', 'application/json')
 			.end(function(err, res) {
 				expect(res.body[0].contact).to.have.property('phone')

@@ -3,27 +3,20 @@ const router = express.Router()
 const axios = require('axios')
 
 const baseUrl = 'http://api.petfinder.com/'
-const options = 'format=json&key=b5e210b2ec6323ecd5b96afa87eeb81b&animal=cat'
+const options = 'format=json&key=b5e210b2ec6323ecd5b96afa87eeb81b'
+const animal = 'cat'
 
 router.post('/:location', (req, res) => {
 	axios
 		.get(`${baseUrl}pet.find?${options}`, {
 			params: {
+				animal: animal,
 				location: req.params.location,
 				count: 100
 			}
 		})
 		.then(cats => {
 			res.json(cats.data['petfinder']['pets']['pet'])
-		})
-		.catch(err => console.log(err))
-})
-
-router.get('/breeds', (req, res) => {
-	axios
-		.get(`${baseUrl}breed.list?${options}`)
-		.then(breeds => {
-			res.json(breeds.data['petfinder']['breeds']['breed'])
 		})
 		.catch(err => console.log(err))
 })
