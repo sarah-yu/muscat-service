@@ -7,9 +7,9 @@ const hostname = os.hostname()
 
 let service
 if (hostname.includes('Sarah')) {
-	service = supertest('http://localhost:3001')
-} else {
 	service = supertest('http://muscat-service.herokuapp.com')
+} else {
+	service = supertest('http://localhost:3001')
 }
 
 describe('GET /api/cats', () => {
