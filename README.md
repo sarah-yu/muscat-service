@@ -29,3 +29,18 @@ Returns an array of all cat breeds.
 GET /api/shelters/:id
 ```
 Returns a record for a single shelter.
+
+
+## Installation
+
+```
+git clone git@github.com:sarah-yu/muscat-service.git
+```
+
+```
+npm install
+```
+
+```
+node index.js
+```
