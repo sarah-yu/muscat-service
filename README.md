@@ -12,15 +12,18 @@ GET /api/cats/from/:location
 Returns an array of records for the first 100 cats found from a location.
 Location can be a zip code (i.e. 20878) or city, state (i.e. Gaithersburg, MD).
 
+
 ```
 GET /api/cats/:id
 ```
 Returns a record for a single cat.
 
+
 ```
 GET /api/breeds
 ```
 Returns an array of all cat breeds.
+
 
 ```
 GET /api/shelters/:id
