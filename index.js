@@ -6,14 +6,11 @@ const axios = require('axios')
 const app = express()
 
 const catsController = require('./controllers/cats')
+const { baseUrl, options, animal } = require('./petfinder.js')
 
 app.use(cors())
 app.use(parser.json())
 app.use(parser.urlencoded({ extended: false }))
-
-const baseUrl = 'http://api.petfinder.com/'
-const options = 'format=json&key=b5e210b2ec6323ecd5b96afa87eeb81b'
-const animal = 'cat'
 
 app.get('/', (req, res) => {
 	res.send('hello world')

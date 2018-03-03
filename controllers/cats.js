@@ -1,12 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const axios = require('axios')
+const { baseUrl, options, animal } = require('../petfinder.js')
 
-const baseUrl = 'http://api.petfinder.com/'
-const options = 'format=json&key=b5e210b2ec6323ecd5b96afa87eeb81b'
-const animal = 'cat'
-
-router.post('/:location', (req, res) => {
+router.get('/from/:location', (req, res) => {
 	axios
 		.get(`${baseUrl}pet.find?${options}`, {
 			params: {
